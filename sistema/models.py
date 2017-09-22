@@ -23,9 +23,9 @@ class Persona(models.Model):
 class Empresa(models.Model):
     nombreDeEmpresa = models.CharField(max_length=200)
     telefono = models.CharField(max_length=200)
-    direccion = models.CharField(max_lenght=200)
-    email = models.EmailField(max_lenght=100)
-    cuit = models.CharField(max_lenght=200)
+    direccion = models.CharField(max_length=200)
+    email = models.EmailField(max_length=100)
+    cuit = models.CharField(max_length=200)
 
     def __str__(self):
         return self.nombreDeEmpresa
@@ -33,7 +33,7 @@ class Empresa(models.Model):
 
 class RegistroDeEmpleados(models.Model):
     desocupado = models.ForeignKey('Persona')
-    empresa = models.Foreignkey('Empresa')
+    empresa = models.ForeignKey('Empresa')
     fechaDeContratacion = models.DateTimeField()
     fechaDeBaja = models.DateTimeField()
 
@@ -43,10 +43,10 @@ class RegistroDeEmpleados(models.Model):
 
 class OfertaDeTrabajo(models.Model):
     empresa = models.ForeignKey('Empresa')
-    informacionNecesaria = models.CharField(max_lenght=200)
+    informacionNecesaria = models.CharField(max_length=200)
     fecha = models.DateTimeField()
     activas =  models.BooleanField()
-    tipoDeTrabajo = ForeignKey('TipoDeTrabajo')
+    tipoDeTrabajo = models.ForeignKey('TipoDeTrabajo')
 
 
 class TipoDeTrabajo(models.Model):
