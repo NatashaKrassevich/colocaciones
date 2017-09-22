@@ -13,7 +13,7 @@ class Persona(models.Model):
     dni = models.CharField(max_length=200)
     fechaNac = models.EmailField(max_length=200)
     tipoDeTrabajo = models.ForeignKey('TipoDeTrabajo')
-    activo = booleanField()
+    activo = models.BooleanField()
     sexo = models.CharField(max_length=9)
 
     def __str__(self):
@@ -45,7 +45,7 @@ class OfertaDeTrabajo(models.Model):
     empresa = models.ForeignKey('Empresa')
     informacionNecesaria = models.CharField(max_lenght=200)
     fecha = models.DateTimeField()
-    activas = booleanField()
+    activas =  models.BooleanField()
     tipoDeTrabajo = ForeignKey('TipoDeTrabajo')
 
 
