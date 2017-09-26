@@ -9,3 +9,8 @@ from .models import TipoDeTrabajo
 # Register your models here.
 
 admin.site.register(Agencia)
+admin.site.register(Persona)
+admin.site.register(Empresa)
+admin.site.register(RegistroDeEmpleados)
+admin.site.register(OfertaDeTrabajo)
+admin.site.register(TipoDeTrabajo)
