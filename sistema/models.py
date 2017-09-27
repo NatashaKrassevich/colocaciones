@@ -11,7 +11,7 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
     dni = models.CharField(max_length=200)
-    fechaNac = models.EmailField(max_length=200)
+    fechaNac = models.DateField(max_length=200)
     tipoDeTrabajo = models.ForeignKey('TipoDeTrabajo')
     activo = models.BooleanField()
     sexo = models.CharField(max_length=9)
