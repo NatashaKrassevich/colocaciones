@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from django.utils import timezone
 from .models import Agencia
+from .models import Persona
+from .models import Empresa
+from .models import RegistroDeEmpleados
+from .models import OfertaDeTrabajo
+from .models import	TipoDeTrabajo
 
 # Create your views here.
 
-def post_list(request):
-	return render(request, 'sistema/post_list.html', {})
+def inicio(request):
+	return render(request, 'sistema/inicio.html', {})
