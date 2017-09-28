@@ -8,5 +8,5 @@ from .models import	TipoDeTrabajo
 
 # Create your views here.
 
-def inicio(request):
-	return render(request, 'sistema/inicio.html', {})
+def post_list(request):
+	return render(request, 'sistema/post_list.html', {})
