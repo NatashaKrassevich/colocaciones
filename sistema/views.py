@@ -8,5 +8,8 @@ from .models import	TipoDeTrabajo
 
 # Create your views here.
 
-def post_list(request):
-	return render(request, 'sistema/post_list.html', {})
+def index(request):
+	return render(request, 'sistema/startbootstrap-freelancer-gh-pages/index.html', {})
+
+
+
