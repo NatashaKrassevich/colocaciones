@@ -8,8 +8,8 @@ from .models import	TipoDeTrabajo
 
 # Create your views here.
 
-def index(request):
-	return render(request, 'sistema/startbootstrap-freelancer-gh-pages/index.html', {})
+def inicio(request):
+	return render(request, 'sistema/inicio.html', {})
 
 
 

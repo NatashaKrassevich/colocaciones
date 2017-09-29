@@ -12,15 +12,19 @@
     <title>Colocaciones</title>
 
     <!-- Bootstrap core CSS -->
+
     <link href="sistema/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
 
   </head>
 
@@ -29,7 +33,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Comienza</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -37,13 +41,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Agencia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#about">Usuario</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Lista</a>
             </li>
           </ul>
         </div>
@@ -56,11 +60,11 @@
     <!-- Header -->
     <header class="masthead">
       <div class="container">
-        <img class="img-fluid" src="img/profile.png" alt="">
+        <img class="img-fluid" src="{% static 'img/profile.png' %}" alt="">
         <div class="intro-text">
-          <span class="name">Start Bootstrap</span>
+          <span class="name">Comienza</span>
           <hr class="star-light">
-          <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+          <span class="skills">La Agencia del gobierno que proporciona trabajo</span>
         </div>
       </div>
     </header>
@@ -78,7 +82,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/cabin.png" alt="">
+              <img class="img-fluid" src="{% static 'img/portfolio/cabin.png' %}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -88,7 +92,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/cake.png" alt="">
+              <img class="img-fluid" src="{% static 'img/portfolio/cake.png' %}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -98,7 +102,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/circus.png" alt="">
+              <img class="img-fluid" src="{% static 'img/portfolio/circus.png' %}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -108,7 +112,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/game.png" alt="">
+              <img class="img-fluid" src="{% static 'img/portfolio/game.png' %}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -118,7 +122,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/safe.png" alt="">
+              <img class="img-fluid" src="{% static 'img/portfolio/safe.png' %}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -128,7 +132,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
+              <img class="img-fluid" src="{% static 'img/portfolio/submarine.png' %}" alt="">
             </a>
           </div>
         </div>
@@ -154,6 +158,20 @@
 
     <!-- Custom scripts for this template -->
     <script src="sistema/static/js/freelancer.min.js"></script>
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/freelancer.min.js' %}"></script>
 
   </body>
 
