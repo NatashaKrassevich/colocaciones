@@ -28,13 +28,6 @@
     color: black;
     border: 2px solid #4CAF50;
 }
-
-.button2 {
-    background-color: grey;
-    color: white;
-    border: 2px solid #4CAF50;
-}
-
 </style>
 </head>
 <style type="">
@@ -49,15 +42,14 @@
 	<div id="contenedor">
 		<header>
 			<center>
-			<h1>¿Cómo desea ingresar?</h1>
+			<h1>Como se quiere registrar?</h1>
 		</center>
 		</header>
 
 <center>
 <div class="contenido">
- 	<button class="button button1" onclick=" location.href='login'">Empresa</button>
-    <button class="button button1" onclick=" location.href='login'">Usuario</button> <br>
-		  <a href="{{ url('registrate') }}" class="button button2"> No tengo cuenta</a>
+ 	<a href="{{ url('registrar.empresa') }}" class="button button2"> Empresa</a>
+  <a href="{{ url('registrar.desocupado') }}" class="button button2"> Usuario</a>
 </div>
 </center>
 

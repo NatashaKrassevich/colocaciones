@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin as admin_views
-from django.contrib.auth import views as auth_views 
+from django.contrib.auth import views as auth_views
 from app.core import views as core_views
 
 urlpatterns = [
@@ -22,6 +22,7 @@ urlpatterns = [
     # pongamos luego.
     url(r'^$', core_views.home, name='home'),
     url(r'^inicio/$', core_views.inicio, name='inicio'),
+    url(r'^registrate/$', core_views.registrate, name='registrate'),
     url(r'^post_list/$', core_views.inicio, name='post_list'),
     url(r'^private$', core_views.private, name='private'),
     url(r'^registrar/desocupado$', core_views.registro_desocupado, name='registrar.desocupado'),

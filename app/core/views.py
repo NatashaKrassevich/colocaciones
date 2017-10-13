@@ -12,6 +12,9 @@ def home(request):
 def inicio(request):
     return render(request, 'inicio.html')
 
+def registrate(request):
+    return render(request, 'registrate.html')
+
 def post_list(request):
     return render(request, 'post_list.html')
 
