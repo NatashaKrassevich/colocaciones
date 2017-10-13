@@ -6,11 +6,20 @@ from django.shortcuts import render, redirect
 
 from app.core.forms import RegistroDesocupado, RegistroEmpresa
 
-@login_required
 def home(request):
+    return render(request, 'home.html')
+
+def inicio(request):
+    return render(request, 'inicio.html')
+
+def post_list(request):
+    return render(request, 'post_list.html')
+
+@login_required
+def private(request):
     user = request.user
     user.refresh_from_db()
-    return render(request, 'home.html', {'user': user})
+    return render(request, 'private.html', {'user': user})
 
 def registro_desocupado(request):
     # Cuando algo llega a esta vista (llamada desde una URL) puede venir por dos

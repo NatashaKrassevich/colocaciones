@@ -1,13 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Welcome, {{ user.get_full_name() }} <small>{{ user.username }}</small>!</h2>
-  <p>Sos un: {{ user.profile_type() }}</p>
-  <p>Algunos datos relevantes son:</p>
-  {% if user.is_empresa() %}
-    <p>CUIT: {{ user.profile().cuit }}</p>
-  {% endif %}
-  {% if user.is_desocupado() %}
-    <p>DNI: {{ user.profile().dni }}</p>
-  {% endif %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Agencia</title>
+	<link rel="stylesheet" href="css/estilos.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+</style>
+</head>
+<style type="">
+	body {
+		background-image: url("/static/img/imag1.jpg");
+		background-size:1350px;
+	}
+
+</style>
+<body>
+
+	<div id="contenedor">
+		<header>
+			<center>
+			<h1>¿Cómo desea ingresar?</h1> 
+		</center>
+		</header>
+
+<center>
+<div class="contenido">
+ 	<button class="button button1" onclick=" location.href='login'">Empresa</button>
+    <button class="button button1" onclick=" location.href='login'">Usuario</button>
+</div>
+</center>
+	
+	</div>
+
+</body>
+
+</html>
 {% endblock %}
