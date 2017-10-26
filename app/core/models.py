@@ -48,6 +48,8 @@ def update_user_desocupado(sender, instance, created, **kwargs):
         Desocupado.objects.create(user=instance, nombre=instance.first_name, apellido=instance.last_name)
     instance.desocupado.save()
 
+
+
 class Empresa(models.Model):
     # La empresa también es logueable, idem desocupado
     user = models.OneToOneField(User, on_delete=models.CASCADE)

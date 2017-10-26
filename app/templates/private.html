@@ -3,6 +3,7 @@
 {% block content %}
   <h2>Welcome, {{ user.get_full_name() }} <small>{{ user.username }}</small>!</h2>
   <p>Sos un: {{ user.profile_type() }}</p>
+  <p>En breve nos comunicaremos con usted buscando una solución a su problema</p>
   <p>Algunos datos relevantes son:</p>
   {% if user.is_empresa() %}
     <p>CUIT: {{ user.profile().cuit }}</p>

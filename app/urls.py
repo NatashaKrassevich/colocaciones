@@ -21,9 +21,8 @@ urlpatterns = [
     # registro de empresas y desocupados. Además de cualquier otra cosa que
     # pongamos luego.
     url(r'^$', core_views.home, name='home'),
-    url(r'^inicio/$', core_views.inicio, name='inicio'),
     url(r'^registrate/$', core_views.registrate, name='registrate'),
-    url(r'^post_list/$', core_views.inicio, name='post_list'),
+    url(r'^post_list/$', core_views.post_list, name='post_list'),
     url(r'^private$', core_views.private, name='private'),
     url(r'^registrar/desocupado$', core_views.registro_desocupado, name='registrar.desocupado'),
     url(r'^registrar/empresa$', core_views.registro_empresa, name='registrar.empresa'),

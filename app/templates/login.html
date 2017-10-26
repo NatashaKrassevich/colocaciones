@@ -10,7 +10,7 @@
   </center>
   {% endif %}
   <center>
-  <form method="post">
+    <form method="POST">
     {{ csrf_input }}
     <input type="hidden" name="next" value="{{ next }}" />
     {% for field in form %}
@@ -42,11 +42,10 @@
     .button1 {
       background-color: white;
       color: black;
-      border: 2px solid #4CAF50;
+      border: 2px solid #4CAF50; 
     }
 </style>
-    <button type="submit" class="button button1">Log in</button>
-    <button type="submit" onclick=" location.href='inicio'">Lo in</button><br>
+    <button type="submit" class="button button1" >Log in</button>
   </form>
   </center>
 {% endblock %}

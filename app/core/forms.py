@@ -40,6 +40,7 @@ class RegistroDesocupado(UserCreationForm):
         # Y lo devolvemos
         return user
 
+
 class RegistroEmpresa(UserCreationForm):
     cuit = forms.CharField(max_length=10)
     razon_social = forms.CharField()
