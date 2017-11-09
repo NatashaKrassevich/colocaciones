@@ -75,3 +75,35 @@ def handle_registro_empresa_form(request):
     else:
         return render(request, 'signup.html', {'form': form})
 
+
+@login_required
+def edit_user(request, pk):
+    if request.method == "GET":
+        return get_edit_user(request, pk)
+    elif request.method == "POST":
+        return handler_edit_user(request, pk)
+
+def get_edit_user(request, pk):
+    if request.user.is_desocupado():
+        form = RegistroDesocupado(instace=request.user)
+    else:
+        form = RegistroEmpresa(instace=request.user)
+    return render(request, 'edit_user.html', {'form': form})
+
+def handler_edit_user(request, pk):
+    if request.user.is_desocupado():
+        form = RegistroDesocupado(request.POST, instance=request.user)
+    else: 
+        form = RegistroEmpresa(request.POST, instance=request.user)
+    if form.is_valid():
+        form.save()
+        return redirect('edit_user', pk=user.pk)
+    else:
+        return render(request, 'edit_user.html', {'form': form})
+
+
+@login_required
+def delete_user(request):
+    user = request.user
+    user = user.refresh_from_db()
+    user
