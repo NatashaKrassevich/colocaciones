@@ -15,10 +15,18 @@
     <header>
       <a href="{{ url('home') }}"> <h1>Colocaciones</h1> </a>
       {% if user.is_authenticated() %}
-        <a href="{{ url('logout') }}">cerrar sesion</a> 
+        <a href="{{ url('logout') }}">cerrar sesion</a>
+
       {% else %}
         <a href="{{ url('login') }}">ingresar</a> / <a href="{{ url('registrate') }}"> registrar </a>
       {% endif %}
+      {% if user.is_authenticated() %}
+          <a href="{{ url('edit_user') }}">editar usuario</a>
+          {% endif %}
+          {% if user.is_authenticated() %}
+          <a href="{{url ('user_delete') }}" >    Eliminar Cuenta </a>
+              {% endif %}
+
       <hr>
     </header>
     <main>
