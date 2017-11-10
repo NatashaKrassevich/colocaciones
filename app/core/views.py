@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from app.core.forms import RegistroDesocupado, RegistroEmpresa
+from app.core.models import *
+from app.core.forms import *
 
 def home(request):
     return render(request, 'home.html')
@@ -77,27 +79,31 @@ def handle_registro_empresa_form(request):
 
 
 @login_required
-def edit_user(request, pk):
+def edit_user(request):
     if request.method == "GET":
-        return get_edit_user(request, pk)
+        return get_edit_user(request, request.user.id)
     elif request.method == "POST":
-        return handler_edit_user(request, pk)
+        return handler_edit_user(request, request.user.id)
 
 def get_edit_user(request, pk):
+    user = request.user
+    user.refresh_from_db()
     if request.user.is_desocupado():
-        form = RegistroDesocupado(instace=request.user)
+        form = EditarDesocupado(instace=user.desocupado)
     else:
-        form = RegistroEmpresa(instace=request.user)
+        form = EditarEmpresa(instace=user.empresa)
     return render(request, 'edit_user.html', {'form': form})
 
 def handler_edit_user(request, pk):
+    user = request.user
+    user.refresh_from_db()
     if request.user.is_desocupado():
-        form = RegistroDesocupado(request.POST, instance=request.user)
+        form = EditarDesocupado(request.POST, instance=user.desocupado)
     else: 
-        form = RegistroEmpresa(request.POST, instance=request.user)
+        form = EditarEmpresa(request.POST, instance=user.empresa)
     if form.is_valid():
         form.save()
-        return redirect('edit_user', pk=user.pk)
+        return redirect('edit_user')
     else:
         return render(request, 'edit_user.html', {'form': form})
 
