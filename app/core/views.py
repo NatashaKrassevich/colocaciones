@@ -103,7 +103,6 @@ def handler_edit_user(request, pk):
 
 
 @login_required
-def delete_user(request):
-    user = request.user
-    user = user.refresh_from_db()
-    user
+def user_delete(request):
+    User.objects.get(id=request.user.id).delete()
+    return redirect('logout')
