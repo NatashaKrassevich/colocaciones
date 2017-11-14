@@ -112,3 +112,24 @@ def handler_edit_user(request, pk):
 def user_delete(request):
     User.objects.get(id=request.user.id).delete()
     return redirect('logout')
+
+
+
+def registrarOfertaDeTrabajo(request):
+    if request.method == "GET":
+        return get_registrarOfertaDeTrabajo_form(request)
+    elif request.method == 'POST':
+        return handle_registrarOfertaDeTrabajo_form(request)
+
+def get_registrarOfertaDeTrabajo_form(request):
+    form = RegistrarOfertaDeTrabajo()
+    return render(request, 'oferta de trabajo.html', {'form': form})
+
+def handle_registrarOfertaDeTrabajo_form(request):
+    form = RegistrarOfertaDeTrabajo(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('private')
+    else:
+        return render(request, 'oferta de trabajo.html', {'form': form})
+

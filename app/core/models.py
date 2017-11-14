@@ -84,7 +84,7 @@ class RegistroDeEmpleados(models.Model):
 class OfertaDeTrabajo(models.Model):
     #empresa = models.ForeignKey('Empresa')
     informacionNecesaria = models.CharField(max_length=200)
-    fecha = models.DateTimeField()
+    fecha = models.DateField()
     activas =  models.BooleanField()
     #tipoDeTrabajo = models.ForeignKey('TipoDeTrabajo')
 
