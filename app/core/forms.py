@@ -71,13 +71,15 @@ class RegistroEmpresa(UserCreationForm):
 class EditarEmpresa(forms.ModelForm):
     class Meta:
         model = Empresa
-        fields = ('cuit', 'razon_social', 'rubro')
+        fields =  '__all__'
+
+        #['cuit', 'razon_social', 'rubro']
 
 class EditarDesocupado(forms.ModelForm):
     class Meta:
         model = Desocupado
-        fields = ('nombre', 'apellido', 'fecha_nacimiento', 'localidad', 'estado_ocupacion', 'experiencia_laboral', 'formacion', 'habilidades', 'trabajo_realizable', 'dni')
-
+        fields =  '__all__'
+        #['nombre', 'apellido', 'fecha_nacimiento', 'localidad', 'estado_ocupacion', 'experiencia_laboral', 'formacion', 'habilidades', 'trabajo_realizable', 'dni']
 class RegistrarOfertaDeTrabajo(forms.ModelForm):
     class Meta:
         model = OfertaDeTrabajo

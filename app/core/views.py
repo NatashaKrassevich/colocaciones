@@ -88,18 +88,18 @@ def get_edit_user(request, pk):
     user = request.user
     user.refresh_from_db()
     if request.user.is_desocupado():
-        form = EditarDesocupado(instace=user.desocupado)
+        form = EditarDesocupado(instance= User.objects.get(id=request.user.id))
     else:
-        form = EditarEmpresa(instace=user.empresa)
+        form = EditarEmpresa(instance= User.objects.get(id=request.user.id))
     return render(request, 'edit_user.html', {'form': form})
 
 def handler_edit_user(request, pk):
     user = request.user
     user.refresh_from_db()
     if request.user.is_desocupado():
-        form = EditarDesocupado(request.POST, instance=user.desocupado)
+        form = EditarDesocupado(request.POST, instance= User.objects.get(id=request.user.id))
     else: 
-        form = EditarEmpresa(request.POST, instance=user.empresa)
+        form = EditarEmpresa(request.POST, instance= User.objects.get(id=request.user.id))
     if form.is_valid():
         form.save()
         return redirect('edit_user')
