@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from app.core.forms import RegistroDesocupado, RegistroEmpresa
 from app.core.models import *
 from app.core.forms import *
 
