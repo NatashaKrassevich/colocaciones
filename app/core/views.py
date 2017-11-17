@@ -6,6 +6,8 @@ from app.core.models import *
 from app.core.forms import *
 
 def home(request):
+    if (request.user.is_authenticated()):
+        return redirect('private')
     return render(request, 'home.html')
 
 def inicio(request):
@@ -88,18 +90,18 @@ def get_edit_user(request, pk):
     user = request.user
     user.refresh_from_db()
     if request.user.is_desocupado():
-        form = EditarDesocupado(instance= User.objects.get(id=request.user.id))
+        form = EditarDesocupado(instance= User.objects.get(id=request.user.id).desocupado)
     else:
-        form = EditarEmpresa(instance= User.objects.get(id=request.user.id))
+        form = EditarEmpresa(instance= User.objects.get(id=request.user.id).empresa)
     return render(request, 'edit_user.html', {'form': form})
 
 def handler_edit_user(request, pk):
     user = request.user
     user.refresh_from_db()
     if request.user.is_desocupado():
-        form = EditarDesocupado(request.POST, instance= User.objects.get(id=request.user.id))
+        form = EditarDesocupado(request.POST, instance= User.objects.get(id=request.user.id).desocupado)
     else: 
-        form = EditarEmpresa(request.POST, instance= User.objects.get(id=request.user.id))
+        form = EditarEmpresa(request.POST, instance= User.objects.get(id=request.user.id).empresa)
     if form.is_valid():
         form.save()
         return redirect('edit_user')

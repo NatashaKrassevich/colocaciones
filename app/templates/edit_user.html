@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <center>
-<h1>Modifica la Oferta De Trabajo</h1>
+
+    <h2> Ya puedes cambiar tu informacion </h2>
+
 
 {% if form.errors %}
     {% for field in form %}
@@ -12,7 +15,7 @@
             </div>
         {% endfor %}
     {% endfor %}
-    {% for error in form.non_field_errors()%}
+    {% for error in form.non_field_errors() %}
         <div class="alert alert-danger">
             <strong>{{ error|escape }}</strong>
         </div>
@@ -22,7 +25,7 @@
 <form method="POST" class="post-form">
     {{ csrf_input }}
     {{ form.as_p() }}
-    <button type="submit" class="button_1" >GUARDAR</button>
-</form>
-</center>>
+    <button type="submit" class="save btn btn-default">Modificar</button>
+</form> 
+</center>
 {% endblock %}
