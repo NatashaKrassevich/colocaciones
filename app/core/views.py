@@ -132,3 +132,32 @@ def handle_registrarOfertaDeTrabajo_form(request):
     else:
         return render(request, 'oferta de trabajo.html', {'form': form})
 
+@login_required
+def edit_oferta(request):
+    if request.method == "GET":
+        return get_edit_oferta(request, request.user.id)
+    elif request.method == "POST":
+        return handler_edit_oferta(request, request.user.id)
+
+def get_edit_oferta(request, pk):
+    user = request.user
+    user.refresh_from_db()
+    if request.user.is_empresa():
+        form = EditarOferta(instance= User.objects.get(id=request.user.id))
+    return render(request, 'edit_oferta.html', {'form': form})
+
+def handler_edit_oferta(request, pk):
+    user = request.user
+    user.refresh_from_db()
+    if request.user.is_empresa():
+        form = EditarOferta(request.POST, instance= User.objects.get(id=request.user.id))
+    if form.is_valid():
+        form.save()
+        return redirect('edit_oferta')
+    else:
+        return render(request, 'edit_oferta.html', {'form': form})
+
+@login_required
+def oferta_delete(request):
+    OfertaDeTrabajo.objects.get(id=OfertaDeTrabajo.id).delete()
+    return redirect('home')

@@ -84,3 +84,8 @@ class RegistrarOfertaDeTrabajo(forms.ModelForm):
     class Meta:
         model = OfertaDeTrabajo
         fields =  ('informacionNecesaria', 'fecha', 'activas')
+
+class EditarOferta(forms.ModelForm):
+    class Meta:
+        model = OfertaDeTrabajo
+        fields =  ('informacionNecesaria', 'fecha', 'activas')
