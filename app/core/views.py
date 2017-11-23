@@ -5,6 +5,11 @@ from django.shortcuts import render, redirect
 from app.core.models import *
 from app.core.forms import *
 
+def get_current_user(request):
+    user = request.user
+    user.refresh_from_db()
+    return user
+
 def home(request):
     if (request.user.is_authenticated()):
         return redirect('private')
@@ -130,36 +135,35 @@ def handle_registrarOfertaDeTrabajo_form(request):
     form = RegistrarOfertaDeTrabajo(request.POST)
     if form.is_valid():
         form.save()
-        return redirect('private')
+        return redirect('lista_ofertas')
     else:
         return render(request, 'oferta de trabajo.html', {'form': form})
 
 @login_required
-def edit_oferta(request):
+def edit_oferta(request, pk):
     if request.method == "GET":
-        return get_edit_oferta(request, request.user.id)
-    elif request.method == "POST":
-        return handler_edit_oferta(request, request.user.id)
+        return get_edit_oferta(request, pk)
+    elif request.method == 'POST':
+        return handler_edit_oferta(request, pk)
 
 def get_edit_oferta(request, pk):
-    user = request.user
-    user.refresh_from_db()
-    if request.user.is_empresa():
-        form = EditarOferta(instance= User.objects.get(id=request.user.id))
-    return render(request, 'edit_oferta.html', {'form': form})
+    form = EditarOferta(instance=OfertaDeTrabajo.objects.get(id=pk))
+    return render(request, 'edit_oferta.html', {'form': form, 'user': get_current_user(request)})
 
 def handler_edit_oferta(request, pk):
-    user = request.user
-    user.refresh_from_db()
-    if request.user.is_empresa():
-        form = EditarOferta(request.POST, instance= User.objects.get(id=request.user.id))
+    form = EditarOferta(request.POST, instance=OfertaDeTrabajo.objects.get(id=pk))
     if form.is_valid():
         form.save()
-        return redirect('edit_oferta')
+        return redirect('lista_ofertas')
     else:
-        return render(request, 'edit_oferta.html', {'form': form})
+        return render(request, 'edit_oferta.html', {'form': form, 'user': get_current_user(request)})
 
 @login_required
-def oferta_delete(request):
-    OfertaDeTrabajo.objects.get(id=OfertaDeTrabajo.id).delete()
-    return redirect('home')
+def oferta_delete(request, pk):
+    OfertaDeTrabajo.objects.get(id=pk).delete()
+    return redirect('lista_ofertas')
+
+@login_required
+def lista_ofertas(request):
+    ofertasvar = OfertaDeTrabajo.objects.all()
+    return render(request, 'lista_ofertas.html', {'ofertas': ofertasvar})

@@ -77,6 +77,7 @@ class EditarDesocupado(forms.ModelForm):
     class Meta:
         model = Desocupado
         fields = ['nombre', 'apellido', 'fecha_nacimiento', 'localidad', 'estado_ocupacion', 'experiencia_laboral', 'formacion', 'habilidades', 'trabajo_realizable', 'dni']
+
 class RegistrarOfertaDeTrabajo(forms.ModelForm):
     class Meta:
         model = OfertaDeTrabajo
